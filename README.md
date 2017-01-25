@@ -8,7 +8,9 @@
 
 Profanity Filter takes strings as input and removes any bad curse words that the string might have. It checks the strings for specific blacklist which must match as a separate word to be considered as a curse word. If a curse word is found, then it will replace the curse word with a censor character the user chooses (default is *).
 
-This package is intended to used with Laravel. Tested and working with laravel 5.1.
+This package is intended to used with Laravel. Tested and working with laravel 5.4.
+
+If you want to override the Package's config file, just copy it and rename it to ```config/profanity-filter.php```, and update as per your needs.
 
 This code is based on [Fastwebmedia/Profanity-Filter](https://github.com/fastwebmedia/Profanity-Filter). A major part of it is taken from there and I added the things that I thought it required.
 
@@ -23,10 +25,10 @@ $ composer require sworup/profanityfilter
 ###Laravel
 Add ```'Sworup\ProfanityFilter\ProfanityServiceProvider'``` to your providers array.
 
-If you wish to use the Facade then add 
+If you wish to use the Facade then add
 ```'Profanity'         => 'Sworup\ProfanityFilter\Profanity'```
 
-The package will automatically use the config file containing the list of banned words. 
+The package will automatically use the config file containing the list of banned words.
 
 
 ## Usage
