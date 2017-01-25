@@ -56,7 +56,7 @@ class ProfanityFilter
                     $first_time_through = false;
                     $regex_ready_word .= str_ireplace(array_keys($replace), array_values($replace), $letter);
                 } else {
-                    $regex_ready_word .= "\W*".str_ireplace(array_keys($replace), array_values($replace), $letter);
+                    $regex_ready_word .= "\W*" . str_ireplace(array_keys($replace), array_values($replace), $letter);
                 }
             }
             
