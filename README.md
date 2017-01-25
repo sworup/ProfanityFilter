@@ -90,8 +90,8 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [link-packagist]: https://packagist.org/packages/sworup/profanityfilter
 [link-travis]: https://travis-ci.org/sworup/Profanity-Filter
-[link-scrutinizer]: https://scrutinizer-ci.com/g/sworup/ProfanityFilter/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/sworup/ProfanityFilter
+[link-scrutinizer]: https://scrutinizer-ci.com/g/sworup/Profanity-Filter/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/sworup/Profanity-Filter
 [link-downloads]: https://packagist.org/packages/sworup/profanityfilter
 [link-author]: https://github.com/sworup
 [link-contributors]: ../../contributors
