@@ -1,0 +1,6 @@
+suites:
+    profanity_filter_suite:
+        namespace: Sworup\ProfanityFilter
+        psr4_prefix: Sworup\ProfanityFilter
+        src_path: src
+        spec_prefix: spec
