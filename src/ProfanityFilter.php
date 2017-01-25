@@ -17,7 +17,9 @@ class ProfanityFilter
 
     public function clean($string, $censorChar = "*")
     {
-        if (empty($string)) return $this->createOutputObject();
+        if (empty($string)) {
+            return $this->createOutputObject();
+        }
 
         $newstring = $this->checkForBadWordsAnywhere($string, $censorChar);
         $newstring = $this->checkForBlackListedWords($newstring, $censorChar);
@@ -33,7 +35,7 @@ class ProfanityFilter
         $replacement = array();
         for ($x = 0; $x < $total_badwords; $x++) {
             $replacement[$x] = str_repeat($censorChar, strlen($badwords[$x]));
-            $badwords[$x] = '/' . str_ireplace(array_keys($replace), array_values($replace), $badwords[$x]) . '/i';
+            $badwords[$x] = '/'.str_ireplace(array_keys($replace), array_values($replace), $badwords[$x]).'/i';
         }
         return preg_replace($badwords, $replacement, $string);
     }
@@ -44,13 +46,13 @@ class ProfanityFilter
         $replace   = $this->replace;
         $replacement = array();
         $total_blacklist = count($blackList);
-        for($i=0;$i < $total_blacklist;$i++) {
+        for ($i = 0; $i < $total_blacklist; $i++) {
             $splitword = str_split($blackList[$i]);
             $first_time_through = true;
             $regex_ready_word = "";
             $replacement[$i] = str_repeat($censorChar, strlen($blackList[$i]));
-            foreach($splitword as $letter) {
-                if($first_time_through) {
+            foreach ($splitword as $letter) {
+                if ($first_time_through) {
                     $first_time_through = false;
                     $regex_ready_word .= str_ireplace(array_keys($replace), array_values($replace), $letter);
                 } else {
@@ -58,7 +60,7 @@ class ProfanityFilter
                 }
             }
             
-            $blackList[$i] ="#\b$regex_ready_word\b#i";
+            $blackList[$i] = "#\b$regex_ready_word\b#i";
         }
         return preg_replace($blackList, $replacement, $string);
     }
