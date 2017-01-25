@@ -44,21 +44,21 @@ class ProfanityFilter
         $replace   = $this->replace;
         $replacement = array();
         $total_blacklist = count($blackList);
-        for($i=0;$i < $total_blacklist;$i++) {
+        for ($i = 0; $i < $total_blacklist; $i++) {
             $splitword = str_split($blackList[$i]);
             $first_time_through = true;
             $regex_ready_word = "";
             $replacement[$i] = str_repeat($censorChar, strlen($blackList[$i]));
-            foreach($splitword as $letter) {
-                if($first_time_through) {
+            foreach ($splitword as $letter) {
+                if ($first_time_through) {
                     $first_time_through = false;
                     $regex_ready_word .= str_ireplace(array_keys($replace), array_values($replace), $letter);
                 } else {
-                    $regex_ready_word .= "\W*".str_ireplace(array_keys($replace), array_values($replace), $letter);
+                    $regex_ready_word .= "\W*" . str_ireplace(array_keys($replace), array_values($replace), $letter);
                 }
             }
             
-            $blackList[$i] ="#\b$regex_ready_word\b#i";
+            $blackList[$i] = "#\b$regex_ready_word\b#i";
         }
         return preg_replace($blackList, $replacement, $string);
     }
