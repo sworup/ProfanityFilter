@@ -24,7 +24,7 @@ class ProfanityFilterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['profanity'] = $this->app->share(function($app) {
+        $this->app->singleton('profanity', function($app) {
             $dependency = $this->app['config']['profanity-filter.words'];
             $blacklist  = $this->app['config']['profanity-filter.blacklist'];
             $replace    = $this->app['config']['profanity-filter.replace'];
